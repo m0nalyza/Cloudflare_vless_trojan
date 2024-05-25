@@ -1,86 +1,98 @@
-# Cloudflare-workers/pages代理脚本
+# Cloudflare-workers/pages proxy script
 
-支持workers部署，实现vless+ws+tls、trojan+ws+tls、vless+ws、trojan+ws代理节点
+Support workers deployment, implement vless+ws+tls、trojan+ws+tls、vless+ws、trojan+ws proxy node
 
-支持pages部署，实现vless+ws+tls、trojan+ws+tls代理节点
+Support pages deployment, implement vless+ws+tls、trojan+ws+tls proxy node
 
 --------------------------------
 
-## 一：CF Vless节点可自定义内容
+## ：CF Vless node can be customized content
 
-#### 可修改Vless_workers_pages文件下的_worker.js文件
+#### Can modify Vless_workers_pages file_worker.js file
 
-1、UUID必须自定义（第7行）
+1.UUID must be customized (line 7)
 
-2、如果无法访问CF类网站或者ChatGPT，说明ProxyIP失效，可更换ProxyIP，自定义（第9行）
+2. If you cannot access CF websites or ChatGPT, it means that the ProxyIP is invalid. You can replace the ProxyIP and customize it (line 9)
 
-3、伪装网页目前留空，显示为400 Bad Request界面，可自定义（第10行）
+3. The disguised web page is currently left blank and displays the 400 Bad Request interface, which can be customized (line 10)
 
-#### 也可在CF-workers/pages界面中使用变量设置，注：变量设置结果将覆盖本地修改结果
-| 变量作用 | 变量名称| 变量值要求| 变量默认值|
+#### You can also use variable settings in the CF-workers/pages interface. Note: The variable setting results will overwrite the local modification results.
+| Variable function | Variable name | Variable value requirements | Variable default value |
 | :--- | :--- | :--- | :--- |
-| 1、必要的uuid | uuid |符合uuid规定格式 |万人骑uuid：77a571fb-4fd2-4b37-8596-1b7d9728bb5c|
-| 2、能上CF类网站 | proxyip |ipv4地址、域名、[ipv6地址]|proxyip域名：cdn.xn--b6gac.eu.org|
+| 1. Necessary uuid | uuid | Comply with uuid specified format | Ten thousand people ride uuid: 77a571fb-4fd2-4b37-8596-1b7d9728bb5c|
+| 2. Can access CF websites | proxyip |ipv4 address, domain name, [ipv6 address]|proxyip domain name: cdn.xn--b6gac.eu.org|
 
----------------------------------
+----------------------------------
 
-## 二：CF Trojan节点可自定义内容
+## 2: Customizable content of CF Trojan node
 
-#### 可修改Trojan_workers_pages文件下的_worker.js文件
+#### The _worker.js file under the Trojan_workers_pages file can be modified
 
-1、密码必须自定义（第4行）
+1. The password must be customized (line 4)
 
-2、如果无法访问CF类网站或者ChatGPT，说明ProxyIP失效，可更换ProxyIP，自定义（第5行）
+2. If you cannot access CF websites or ChatGPT, it means that the ProxyIP is invalid. You can replace the ProxyIP and customize it (line 5)
 
-3、伪装网页目前留空，显示为400 Bad Request界面，可自定义（第6行）
+3. The disguised webpage is currently left blank and displays the 400 Bad Request interface, which can be customized (line 6)
 
-#### 也可CF-workers/pages界面中使用变量设置，注：变量设置结果将覆盖本地修改结果
-| 变量作用 | 变量名称| 变量值要求| 变量默认值|
+#### You can also use variable settings in the CF-workers/pages interface. Note: The variable setting results will overwrite the local modification results.
+| Variable function | Variable name | Variable value requirements | Variable default value |
 | :--- | :--- | :--- | :--- |
-| 1、必要的密码 | pswd |任意字符号 |万人骑密码：trojan|
-| 2、能上CF类网站 | proxyip |ipv4地址、域名、[ipv6地址]|proxyip域名：cdn.xn--b6gac.eu.org|
+| 1. Necessary password | pswd | Any character | Thousands of people riding password: trojan |
+| 2. Can access CF websites | proxyip |ipv4 address, domain name, [ipv6 address]|proxyip domain name: cdn.xn--b6gac.eu.org|
 
----------------------------------
-## 三：查看相关分享链接（单节点，非订阅）
-#### CF Vless分享链接，在网页输入： https:// workers域名 或者 pages域名 或者 自定义域名/自定义uuid
-#### CF Trojan分享链接，在网页输入：https:// workers域名 或者 pages域名 或者 自定义域名/自定义密码
+----------------------------------
+## Three: View related sharing links (single node, non-subscription)
+#### CF Vless share link, enter on the webpage: https:// workers domain name or pages domain name or custom domain name/custom uuid
+#### CF Trojan share link, enter on the webpage: https:// workers domain name or pages domain name or custom domain name/custom password
 
-#### 注意： 
+#### Notice: 
 
-由于workers域名已被全网TLS阻断、pages域名已被中国移动TLS阻断（代理客户端开启切片功能可免疫阻断）
+Because the workers domain name has been blocked by TLS across the entire network, and the pages domain name has been blocked by China Mobile TLS (the proxy client can be immune to blocking by turning on the slicing function)
 
-所以需使用自定义域名或者在代理环境下才可查看分享链接
+Therefore, you need to use a custom domain name or be in a proxy environment to view the shared link.
 
-如果你看了教程，就可手搓无数个优选IP节点，也不需要买域名，也不需要分享链接
+If you watch the tutorial, you can create countless preferred IP nodes without buying domain names or sharing links.
 
-客户端不支持切片功能时，workers域名节点建议使用关TLS的节点或者使用自定义域节点
+When the client does not support the slicing function, it is recommended to use a TLS-enabled node or a custom domain node for the worker domain name node.
 
-### 详细说明教程请参考[甬哥博客及视频教程](https://ygkkk.blogspot.com/2023/07/cfworkers-vless.html)
+### For related instructions and points of attention, please check [Yongge’s blog and video tutorial](https://ygkkk.blogspot.com/2023/07/cfworkers-vless.html)
 
----------------------------------
----------------------------------
----------------------------------
----------------------------------
-# 优选域名、优选官方IP+反代IP一键脚本：
+### Video tutorial:
 
-### CF-CDN优选公共大厂域名脚本，苹果安卓手机平板专用，(请参考教程，在本地网络环境下运行)：
+[CF Workers Permanent Free Vless Node Building Tutorial (1): The first demonstration of the IP jumping phenomenon on the entire network, decrypting the usage skills of the two major nodes, and explaining the advantages and disadvantages of preferred IP and preferred domain names] (https://youtu.be/9V9CQxmfwoA)
+
+[CF workers permanent free vless node construction tutorial (2): One-click script release of preferred anti-generation IP, pages deployment tutorial, multi-platform client setting instructions, exclusive discussion of sensitive security issues of CF free agent] (https://youtu.be /McdRoLZeTqg)
+
+[CF Workers Permanent Free Trojan Node Building Tutorial (3): No need to customize domain names, workers and pages are two options to deploy preferred IP nodes; Comparison summary between CF Trojan and CF Vless; How to treat Trojan being recognized](https://youtu.be /lmhhL8M1k0I)
+
+[Live broadcast selection review: Four major features of CF workers vless free nodes, the problem of nodes being blocked] (https://youtu.be/9OHGpWlfdJ0)
+
+[ClouDNS permanent free domain name final tutorial (3): CF pages vless custom domain name direct deployment] (https://youtu.be/PN0BLANXh4I)
+
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+# Preferred domain name, preferred official IP + reverse IP one-click script:
+
+### CF-CDN prefers domain name scripts from major public manufacturers, specifically for Apple Android phones and tablets (please refer to the tutorial to run in a local network environment):
 ```
 curl -sSL https://gitlab.com/rwkgyg/CFwarp/raw/main/point/CFcdnym.sh -o CFcdnym.sh && chmod +x CFcdnym.sh && bash CFcdnym.sh
 ```
-------------------------------------------------------------------------
-### CF-优选官方IP+反代IP二合一脚本，苹果安卓手机平板专用，(请参考教程，在本地网络环境下运行)：
+-------------------------------------------------- -----------------------
+### CF-Preferred official IP + reverse IP two-in-one script, dedicated to Apple Android phones and tablets (please refer to the tutorial to run in the local network environment):
 ```
 curl -sSL https://gitlab.com/rwkgyg/CFwarp/raw/main/point/cfip.sh -o cfip.sh && chmod +x cfip.sh && bash cfip.sh
 ```
 
--------------------------------------------------------------
+-------------------------------------------------- ----------
 
-### 交流平台：[甬哥博客地址](https://ygkkk.blogspot.com)、[甬哥YouTube频道](https://www.youtube.com/@ygkkk)、[甬哥TG电报群组](https://t.me/+jZHc6-A-1QQ5ZGVl)、[甬哥TG电报频道](https://t.me/+DkC9ZZUgEFQzMTZl)
+### Communication platform: [Brother Yong’s blog address](https://ygkkk.blogspot.com), [Brother Yong’s YouTube channel](https://www.youtube.com/@ygkkk), [Brother Yong’s TG telegram Group](https://t.me/+jZHc6-A-1QQ5ZGVl), [Yongge TG Telegram Channel](https://t.me/+DkC9ZZUgEFQzMTZl)
 
--------------------------------------------------------------
-### 感谢你右上角的star🌟
+-------------------------------------------------- ----------
+### Thank you for the star in the upper right corner🌟
 [![Stargazers over time](https://starchart.cc/yonggekkk/Cloudflare-workers-pages-vless.svg)](https://starchart.cc/yonggekkk/Cloudflare-workers-pages-vless)
-------------------------------------------------------------------------
-### 代码来源：[ca110us](https://github.com/ca110us/epeius)、[emn178](https://github.com/emn178/js-sha256/blob/master/src/sha256.js)、[3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel)、[badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest)、[XIU2](https://github.com/XIU2/CloudflareSpeedTest)
+-------------------------------------------------- -----------------------
+### Code source: [ca110us](https://github.com/ca110us/epeius), [emn178](https://github.com/emn178/js-sha256/blob/master/src/sha256.js ), [3Kmfi6HP](https://github.com/3Kmfi6HP/EDtunnel), [badafans](https://github.com/badafans/Cloudflare-IP-SpeedTest), [XIU2](https://github. com/XIU2/CloudflareSpeedTest)
 
-### 声明：所有代码来源于Github社区，并通过ChatGPT进行整合
+### Statement: All codes come from the Github community and are integrated through ChatGPT
